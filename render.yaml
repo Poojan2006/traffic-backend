@@ -1,18 +1,32 @@
 services:
+  # Frontend Service
+  - type: web
+    name: traffic-frontend
+    env: docker
+    dockerContext: traffic-frontend
+    dockerfile: Dockerfile
+    plan: free
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: traffic-backend
+          property: url
+
   # Backend Service
   - type: web
     name: traffic-backend
     env: docker
-    dockerContext: ./traffic-backend
+    dockerContext: traffic-backend
     dockerfile: Dockerfile
     plan: free
     envVars:
       - key: DB_URL
-        sync: false # Set this in Render dashboard (Value from Aiven)
+        sync: false
       - key: DB_USERNAME
-        sync: false # Set this in Render dashboard
+        sync: false
       - key: DB_PASSWORD
-        sync: false # Set this in Render dashboard
+        sync: false
       - key: JWT_SECRET_KEY
         generateValue: true
       - key: GEMINI_API_KEY
@@ -21,18 +35,4 @@ services:
         fromService:
           type: web
           name: traffic-frontend
-          property: url
-
-  # Frontend Service
-  - type: web
-    name: traffic-frontend
-    env: docker
-    dockerContext: ./traffic-frontend
-    dockerfile: Dockerfile
-    plan: free
-    envVars:
-      - key: VITE_API_URL
-        fromService:
-          type: web
-          name: traffic-backend
           property: url
