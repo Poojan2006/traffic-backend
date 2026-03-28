@@ -1,0 +1,29 @@
+# Maven
+target/
+*.jar
+*.war
+*.ear
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.utilsBackup
+pom.xml.v
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# IDEs
+.settings/
+.project
+.classpath
+.factorypath
+bin/
+.vscode/
+
+# Local configuration
+.env
+*.log
+
+# Separate frontend repository
+traffic-frontend/
