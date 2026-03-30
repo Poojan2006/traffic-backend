@@ -17,7 +17,7 @@ public class Violation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(columnDefinition = "bytea")
+    @Column(name = "image_data", columnDefinition = "bytea")
     private byte[] image;
 
     @Column(columnDefinition = "TEXT")
