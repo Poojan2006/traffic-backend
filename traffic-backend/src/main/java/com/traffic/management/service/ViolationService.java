@@ -6,11 +6,13 @@ import com.traffic.management.repository.ViolationRepository;
 import com.traffic.management.repository.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.transaction.annotation.Transactional;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
 @Service
+@Transactional
 public class ViolationService {
 
     private final ViolationRepository violationRepository;
